@@ -1,0 +1,9 @@
+# ninja log v5
+32	1711	7382629102704794	CMakeFiles/FinanceManager.dir/objects/Expense.cpp.obj	78e3cf44baa0bbdb
+9	1764	7382629103544769	CMakeFiles/FinanceManager.dir/main.cpp.obj	fe58ef4e5a587492
+20	1786	7382629103774773	CMakeFiles/FinanceManager.dir/provider/ExpenseProvider.cpp.obj	ca8031eb910f1e82
+3	1805	7382629103974805	CMakeFiles/FinanceManager.dir/provider/UIProvider.cpp.obj	7b5c216bf22baa91
+14	1884	7382629104755080	CMakeFiles/FinanceManager.dir/provider/DataProvider.cpp.obj	8ea6e7cec3530507
+1884	2625	7382629112088526	FinanceManager.exe	51bb15071b2aa53b
+6	1398	7382630008278653	CMakeFiles/FinanceManager.dir/provider/ExpenseProvider.cpp.obj	ca8031eb910f1e82
+1399	1744	7382630011691193	FinanceManager.exe	51bb15071b2aa53b
