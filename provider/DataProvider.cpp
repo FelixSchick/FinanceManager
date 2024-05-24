@@ -13,10 +13,8 @@ vector<Expense> DataProvider::loadExpenses() {
     vector<Expense> expenses;
     string line;
 
-
     ifstream inFile(inputFileName);
     if (!inFile){
-        cout << "Error while loading the expenses from file" << endl;
         return {};
     }
 

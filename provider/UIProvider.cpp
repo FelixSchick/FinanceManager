@@ -41,7 +41,7 @@ void UIProvider::showUI() {
 }
 
 void UIProvider::showMainUI() {
-    cout << "\nExpense Tracker Menu:\n";
+    cout << "\nFinance Manager:\n";
     cout << "1. Add Expense\n";
     cout << "2. View Expenses\n";
     cout << "3. Save Expenses\n";
