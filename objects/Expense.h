@@ -9,7 +9,8 @@
 using namespace std;
 class Expense {
 public:
-    Expense(string& date, string& category, string& description, double amount);
+    Expense(const string& date, const string& category, const string& description, double amount)
+            : date(date), category(category), description(description), amount(amount) {};
 
     string date;
     string category;

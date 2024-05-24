@@ -10,10 +10,13 @@
 #include "../objects/Expense.h"
 
 class DataProvider {
+private:
+    vector<string> split(const string& str, char delimiter);
+
 public:
     string inputFileName = "expenses.txt";
 
-    vector<Expense> loadExpenses() const;
+    vector<Expense> loadExpenses();
     void saveExpenses(vector<Expense> &expenses) const;
 };
 

@@ -12,4 +12,6 @@ add_executable(FinanceManager main.cpp
         provider/ExpenseProvider.cpp
         provider/ExpenseProvider.h
         provider/DataProvider.cpp
-        provider/DataProvider.h)
+        provider/DataProvider.h
+        provider/DateProvider.cpp
+        provider/DateProvider.h)

@@ -4,7 +4,9 @@
 
 #include <iostream>
 #include <iomanip>
+#include <regex>
 #include "ExpenseProvider.h"
+#include "DateProvider.h"
 
 
 
@@ -22,17 +24,36 @@ void ExpenseProvider::viewExpenses(vector<Expense> &expenses) {
 }
 
 Expense ExpenseProvider::addExpense(vector<Expense> &expenses) {
-    Expense expense((string &) "", (string &)"", (string &)"", 0);
+    Expense expense("", "", "", 0);
+    regex numberRegex("^[-+]?[0-9]*\\.?[0-9]+$");
 
-    cout << "Enter date (YYYY-MM-DD): ";
-    cin >> expense.date;
+    string inputDate;
+    bool dateValidation = true;
+    do {
+        cout << "Enter date (YYYY-MM-DD): ";
+        cin >> inputDate;
+        dateValidation = DateProvider::isValidDate(inputDate);
+    } while (!dateValidation);
+    expense.date = inputDate;
+
+
     cout << "Enter category: ";
     cin.ignore();
     getline(cin, expense.category);
+
     cout << "Enter description: ";
     getline(cin, expense.description);
-    cout << "Enter amount: ";
-    cin >> expense.amount;
+
+
+    string inputAmount;
+    bool amountValidation = true;
+    do {
+        cout << "Enter amount: ";
+        cin >> inputAmount;
+        replace(inputAmount.begin(), inputAmount.end(), ',', '.');
+        amountValidation = regex_match(inputAmount, numberRegex);
+    } while (!amountValidation);
+    expense.amount = stod(inputAmount);
 
     expenses.push_back(expense);
     return expense;
