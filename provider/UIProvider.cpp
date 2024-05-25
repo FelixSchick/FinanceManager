@@ -3,7 +3,7 @@
 //
 
 #include "UIProvider.h"
-#include "../objects/Expense.h"
+#include "../objects/Transaction.h"
 #include <vector>
 #include <string>
 #include <iomanip>
@@ -18,19 +18,22 @@ void UIProvider::showUI() {
     do {
         showMainUI();
         cin >> choice;
-
+        cout << endl;
         switch (choice) {
             case 1:
-                expenseProvider.addExpense(expenses);
+                transactionProvider.addTransaction(transactions);
                 break;
             case 2:
-                expenseProvider.viewExpenses(expenses);
+                transactionProvider.viewTransactions(transactions);
                 break;
             case 3:
-                dataProvider.saveExpenses(expenses);
-                cout << "Expenses saved successfully!" << endl;
+                transactionProvider.viewSummary(transactions);
                 break;
             case 4:
+                dataProvider.saveExpenses(transactions);
+                cout << "Expenses saved successfully!" << endl;
+                break;
+            case 5:
                 cout << "Exiting program..." << endl;
                 break;
             default:
@@ -42,10 +45,11 @@ void UIProvider::showUI() {
 
 void UIProvider::showMainUI() {
     cout << "\nFinance Manager:\n";
-    cout << "1. Add Expense\n";
-    cout << "2. View Expenses\n";
-    cout << "3. Save Expenses\n";
-    cout << "4. Exit\n";
+    cout << "1. Add Transaction\n";
+    cout << "2. View Transactios\n";
+    cout << "3. View Summary\n";
+    cout << "4. Save Transactios\n";
+    cout << "5. Exit\n";
     cout << "Enter your choice: ";
 }
 

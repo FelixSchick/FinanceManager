@@ -7,12 +7,13 @@ set(CMAKE_EXE_LINKER_FLAGS "-static")
 add_executable(FinanceManager main.cpp
         provider/UIProvider.cpp
         provider/UIProvider.h
-        objects/Expense.cpp
-        objects/Expense.h
-        objects/Expense.h
-        provider/ExpenseProvider.cpp
-        provider/ExpenseProvider.h
+        objects/Transaction.cpp
+        objects/Transaction.h
+        objects/Transaction.h
+        provider/TransactionProvider.cpp
+        provider/TransactionProvider.h
         provider/DataProvider.cpp
         provider/DataProvider.h
         provider/DateProvider.cpp
-        provider/DateProvider.h)
+        provider/DateProvider.h
+)

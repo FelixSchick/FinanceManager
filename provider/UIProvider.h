@@ -6,26 +6,26 @@
 #define FINANCEMANAGER_UIPROVIDER_H
 
 #include <vector>
-#include "../objects/Expense.h"
+#include "../objects/Transaction.h"
 #include "DataProvider.h"
-#include "ExpenseProvider.h"
+#include "TransactionProvider.h"
 
 using namespace std;
 
 class UIProvider {
 
 private:
-    vector<Expense> expenses;
+    vector<Transaction> transactions;
     DataProvider dataProvider;
-    ExpenseProvider expenseProvider;
+    TransactionProvider transactionProvider;
 
     void showMainUI();
 
 public:
-    explicit UIProvider(DataProvider dataProvider, ExpenseProvider expenseProvider) {
+    explicit UIProvider(DataProvider dataProvider, TransactionProvider expenseProvider) {
         dataProvider = dataProvider;
         expenseProvider = expenseProvider;
-        expenses = dataProvider.loadExpenses();
+        transactions = dataProvider.loadExpenses();
     }
 
     void showUI();

@@ -7,17 +7,17 @@
 
 
 #include <vector>
-#include "../objects/Expense.h"
+#include "../objects/Transaction.h"
 
 class DataProvider {
 private:
     vector<string> split(const string& str, char delimiter);
 
 public:
-    string inputFileName = "expenses.txt";
+    string inputFileName = "transactions.txt";
 
-    vector<Expense> loadExpenses();
-    void saveExpenses(vector<Expense> &expenses) const;
+    vector<Transaction> loadExpenses();
+    void saveExpenses(vector<Transaction> &expenses) const;
 };
 
 

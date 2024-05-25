@@ -9,26 +9,31 @@
 
 
 
-vector<Expense> DataProvider::loadExpenses() {
-    vector<Expense> expenses;
+vector<Transaction> DataProvider::loadExpenses() {
+    vector<Transaction> expenses;
     string line;
 
     ifstream inFile(inputFileName);
-    if (!inFile){
-        return {};
-    }
+    if (!inFile) return {};
 
     while (getline(inFile, line)) {
         vector<string> parts = split(line, '^');
-        if (parts.size() == 4) {
+        if (parts.size() == 5) {
             string date = parts[0];
             string category = parts[1];
             string description = parts[2];
             string amountStr = parts[3];
+            string typeStr = parts[4];
+
+            TransactionType type;
+
+            if (std::equal(typeStr.begin(), typeStr.end(),"1")) {
+                type = TransactionType::expense;
+            } else type = TransactionType::income;
 
             double amount = stod(amountStr);
 
-            expenses.emplace_back(date, category, description, amount);
+            expenses.emplace_back(date, category, description, amount, type);
         } else {
             cerr << "Invalid line format: " << line << endl;
         }
@@ -40,11 +45,11 @@ vector<Expense> DataProvider::loadExpenses() {
     return expenses;
 }
 
-void DataProvider::saveExpenses(vector<Expense> &expenses) const {
+void DataProvider::saveExpenses(vector<Transaction> &expenses) const {
     ofstream outFile(inputFileName);
 
     for (const auto& expense : expenses) {
-        outFile << expense.date << "^" << expense.category << "^" << expense.description << "^" << expense.amount << endl;
+        outFile << expense.date << "^" << expense.category << "^" << expense.description << "^" << expense.amount << "^" << static_cast<int>(expense.transactionType) <<  endl;
     }
 
     outFile.close();
