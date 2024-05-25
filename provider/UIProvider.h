@@ -22,9 +22,9 @@ private:
     void showMainUI();
 
 public:
-    explicit UIProvider(DataProvider dataProvider, TransactionProvider expenseProvider) {
+    explicit UIProvider(DataProvider dataProvider, TransactionProvider transactionProvider) {
         dataProvider = dataProvider;
-        expenseProvider = expenseProvider;
+        transactionProvider = transactionProvider;
         transactions = dataProvider.loadExpenses();
     }
 
