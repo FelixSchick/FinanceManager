@@ -19,7 +19,7 @@ private:
     DataProvider dataProvider;
     TransactionProvider transactionProvider;
 
-    void showMainUI();
+    static void showMainUI();
 
 public:
     explicit UIProvider(DataProvider dataProvider, TransactionProvider transactionProvider) {

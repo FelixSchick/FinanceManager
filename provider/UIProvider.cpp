@@ -31,7 +31,7 @@ void UIProvider::showUI() {
                 break;
             case 4:
                 dataProvider.saveExpenses(transactions);
-                cout << "Expenses saved successfully!" << endl;
+                cout << "Transaction saved successfully!" << endl;
                 break;
             case 5:
                 cout << "Exiting program..." << endl;
@@ -40,7 +40,7 @@ void UIProvider::showUI() {
                 cout << "Invalid choice. Please try again." << endl;
         }
 
-    } while (choice != 4);
+    } while (choice != 5);
 }
 
 void UIProvider::showMainUI() {
