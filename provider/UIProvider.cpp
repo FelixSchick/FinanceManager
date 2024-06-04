@@ -3,11 +3,6 @@
 //
 
 #include "UIProvider.h"
-#include "../objects/Transaction.h"
-#include <vector>
-#include <string>
-#include <iomanip>
-#include <fstream>
 #include <iostream>
 
 using namespace std;

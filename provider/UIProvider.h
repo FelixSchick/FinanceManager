@@ -24,7 +24,6 @@ private:
 public:
     explicit UIProvider(DataProvider dataProvider, TransactionProvider transactionProvider) {
         dataProvider = dataProvider;
-        transactionProvider = transactionProvider;
         transactions = dataProvider.loadExpenses();
     }
 
