@@ -17,6 +17,7 @@ public:
     Transaction(string  date, string  category, string  description, double amount, const TransactionType& transactionType)
             : date(std::move(date)), category(std::move(category)), description(std::move(description)), amount(amount), transactionType(transactionType) {};
 
+
     string date;
     string category;
     string description;

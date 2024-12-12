@@ -12,6 +12,7 @@ void UIProvider::showUI() {
     int choice;
     do {
         showMainUI();
+
         cin >> choice;
         cout << endl;
         switch (choice) {

@@ -16,4 +16,8 @@ add_executable(FinanceManager main.cpp
         provider/DataProvider.h
         provider/DateProvider.cpp
         provider/DateProvider.h
+        objects/User.h
+        objects/IBan.h
+        objects/IBan.h
+        objects/IBan.cpp
 )
