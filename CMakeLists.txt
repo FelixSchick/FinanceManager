@@ -20,4 +20,5 @@ add_executable(FinanceManager main.cpp
         objects/IBan.h
         objects/IBan.h
         objects/IBan.cpp
+        objects/User.cpp
 )

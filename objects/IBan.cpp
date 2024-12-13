@@ -33,3 +33,12 @@ string IBan::getIBan(IBan &iBan) {
 
     return fprt + mprt + eprt;
 }
+
+bool IBan::_equals(const IBan &other) const {
+    {
+        if (typeid(*this) != typeid(other)) return false;
+        return countrycode == other.countrycode &&
+               bankcode == other.bankcode &&
+               accountnumber == other.accountnumber;
+    }
+}

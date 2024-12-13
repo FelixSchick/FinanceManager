@@ -8,6 +8,7 @@
 using namespace std;
 
 #include "IBan.h"
+#include "Transaction.h"
 
 enum class PermissionLevel : int { user = 0, advisor = 1, support = 2, auditor = 3, manager = 4, admin = 5 };
 
@@ -16,23 +17,30 @@ class User {
 private:
     PermissionLevel permissionLevel; //checks how cool the user is
 
-    int password[5];
-
-
-public:
-    User(const PermissionLevel permissionLevel, int accountnumber, IBan iBan , char name, char lastname, char email, char password)
-    : permissionLevel(permissionLevel), accountnumber(accountnumber), iBan(iBan), name(name), lastname(lastname), email(email), password(password) {}
-
-    bool hasPermission(PermissionLevel _permissionLevel) { return (_permissionLevel <= permissionLevel); }
+    int pin[5];
+    double balance;
 
     //account information
-    int accountnumber; //upcounting
+    int accountNumber; //upcounting
     IBan iBan;
 
     //personal information
-    char name[64];
-    char lastname[32];
+    char name[32];
+    char firstname[64];
     char email[256];
+
+    //check every transaction from and to user to prove the current balance is up-to-date,
+    //if not it change the balance to the correct balance
+    bool proveBalance();
+
+public:
+    User(const PermissionLevel permissionLevel, int accountNumber, IBan iBan , char name, char firstname, char email, int pin)
+    : permissionLevel(permissionLevel), accountNumber(accountNumber), iBan(iBan), name(name), firstname(firstname), email(email), pin(pin), balance(0) {}
+
+    bool hasPermission(PermissionLevel _permissionLevel) { return (_permissionLevel <= permissionLevel); }
+
+    bool updateBalance(Transaction transaction);
+
 };
 
 
