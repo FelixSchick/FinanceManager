@@ -39,7 +39,7 @@ public:
 
     bool hasPermission(PermissionLevel _permissionLevel) { return (_permissionLevel <= permissionLevel); }
 
-    bool updateBalance(Transaction transaction);
+    bool updateBalance(const Transaction& transaction);
 
 };
 

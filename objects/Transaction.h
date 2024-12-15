@@ -21,18 +21,16 @@ private:
     string category;
     string description;
     double amount;
-    TransactionType transactionType;
 
 public:
-    Transaction(IBan senderIban, IBan receiverIban, string  date, string  category, string  description, double amount, const TransactionType& transactionType)
+    Transaction(IBan senderIban, IBan receiverIban, string  date, string  category, string  description, double amount)
             :
             senderIban(senderIban),
             receiverIban(receiverIban),
             date(std::move(date)),
             category(std::move(category)),
             description(std::move(description)),
-            amount(amount),
-            transactionType(transactionType)
+            amount(amount)
             {};
 
     const IBan &getSenderIban() const {
@@ -83,13 +81,7 @@ public:
         Transaction::amount = amount;
     }
 
-    TransactionType getTransactionType() const {
-        return transactionType;
-    }
 
-    void setTransactionType(TransactionType transactionType) {
-        Transaction::transactionType = transactionType;
-    }
 
 };
 

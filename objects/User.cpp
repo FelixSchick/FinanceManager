@@ -12,14 +12,18 @@ bool User::proveBalance() {
  * Update the balance via transaction
  * Return: if success (there is only success - Mindset)
  */
-bool User::updateBalance(Transaction transaction) {
-    if (transaction.senderIban == transaction.receiverIban) return false;
+bool User::updateBalance(const Transaction& transaction) {
+    //TODO: might be useless soon
+    if (transaction.getSenderIban() == transaction.getReceiverIban()
+        && (transaction.getSenderIban() == iBan || transaction.getSenderIban() == iBan)) return false;
 
-    if (transaction.transactionType == TransactionType::expense) {
-        balance -= transaction.amount;
+    if (transaction.getReceiverIban() == iBan) {
+        balance += transaction.getAmount();
     } else {
-        balance += transaction.amount;
+        balance -= transaction.getAmount();
     }
+
+
     return true;
 }
 
