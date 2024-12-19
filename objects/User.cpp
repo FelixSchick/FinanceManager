@@ -10,7 +10,7 @@ bool User::proveBalance() {
 
 /*
  * Update the balance via transaction
- * Return: if success (there is only success - Mindset)
+ * Return: if success
  */
 bool User::updateBalance(const Transaction& transaction) {
     //TODO: might be useless soon

@@ -10,8 +10,6 @@
 
 using namespace std;
 
-enum class TransactionType : int { income = 0, expense = 1};
-
 class Transaction {
 
 private:
